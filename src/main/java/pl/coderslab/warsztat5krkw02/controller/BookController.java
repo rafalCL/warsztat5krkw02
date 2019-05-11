@@ -3,17 +3,17 @@ package pl.coderslab.warsztat5krkw02.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.warsztat5krkw02.model.Book;
-import pl.coderslab.warsztat5krkw02.service.MemoryBookService;
+import pl.coderslab.warsztat5krkw02.service.BookService;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/books")
 public class BookController {
-    private MemoryBookService mbs;
+    private BookService mbs;
 
     @Autowired
-    public BookController(MemoryBookService mbs) {
+    public BookController(BookService mbs) {
         this.mbs = mbs;
     }
 

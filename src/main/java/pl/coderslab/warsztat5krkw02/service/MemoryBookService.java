@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class MemoryBookService {
+public class MemoryBookService implements BookService {
     private List<Book> list;
     private long NEXT_ID = 1;
 
@@ -21,9 +21,12 @@ public class MemoryBookService {
                 "Cay Horstmann, Gary Cornell", "Helion", "programming"));
         this.NEXT_ID = 4L;
     }
+    @Override
     public List<Book> getList() {return list;}
+    @Override
     public void setList(List<Book> list) {this.list = list;}
 
+    @Override
     public Book getBookById(long id) {
         for(Book b : this.list){
             if(b.getId() == id){
@@ -33,11 +36,13 @@ public class MemoryBookService {
         return null;
     }
 
+    @Override
     public void addBook(Book book) {
         book.setId(this.NEXT_ID++);
         this.list.add(book);
     }
 
+    @Override
     public void editBook(long id, Book book) {
         for(int i = 0; i<this.list.size(); i++){
             if(this.list.get(i).getId() == id){
@@ -48,6 +53,7 @@ public class MemoryBookService {
         }
     }
 
+    @Override
     public void deleteBookById(long id) {
         for(int i = 0; i<this.list.size(); i++){
             if(this.list.get(i).getId() == id){
