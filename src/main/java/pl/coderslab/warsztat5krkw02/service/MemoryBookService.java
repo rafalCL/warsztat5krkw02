@@ -37,4 +37,13 @@ public class MemoryBookService {
         book.setId(this.NEXT_ID++);
         this.list.add(book);
     }
+
+    public void editBook(long id, Book book) {
+        for(int i = 0; i<this.list.size(); i++){
+            if(this.list.get(i).getId() == id){
+                book.setId(id);
+                this.list.set(i, book);
+            }
+        }
+    }
 }
