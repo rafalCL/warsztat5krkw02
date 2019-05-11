@@ -54,4 +54,11 @@ public class BookController {
 
         return "{\"status\": \"ok\"}";
     }
+
+    @DeleteMapping("/{id}")
+    public String deleteBook(@PathVariable long id){
+        this.mbs.deleteBookById(id);
+
+        return "{\"status\": \"ok\"}";
+    }
 }
