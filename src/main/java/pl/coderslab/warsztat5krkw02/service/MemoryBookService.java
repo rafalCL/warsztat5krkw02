@@ -20,4 +20,13 @@ public class MemoryBookService {
     }
     public List<Book> getList() {return list;}
     public void setList(List<Book> list) {this.list = list;}
+
+    public Book getBookById(long id) {
+        for(Book b : this.list){
+            if(b.getId() == id){
+                return b;
+            }
+        }
+        return null;
+    }
 }

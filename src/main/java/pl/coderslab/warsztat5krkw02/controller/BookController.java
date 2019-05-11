@@ -2,10 +2,13 @@ package pl.coderslab.warsztat5krkw02.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.coderslab.warsztat5krkw02.model.Book;
 import pl.coderslab.warsztat5krkw02.service.MemoryBookService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/books")
@@ -29,5 +32,15 @@ public class BookController {
                 "Thinking in Java",
                 "Bruce Eckel",
                 "Helion", "programming");
+    }
+
+    @GetMapping("")
+    public List<Book> getAllBooks(){
+        return this.mbs.getList();
+    }
+
+    @GetMapping("/{id}")
+    public Book getBook(@PathVariable long id){
+        return this.mbs.getBookById(id);
     }
 }
